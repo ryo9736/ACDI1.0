@@ -11,6 +11,7 @@ ja:
         area: 地域
         gym: ジム
         goal: 目的
+        image: アイコン
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
