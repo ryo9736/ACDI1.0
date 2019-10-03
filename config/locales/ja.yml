@@ -5,6 +5,12 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         email: メールアドレス
+        current_password: 現在のパスワード
+        name: 名前
+        history: 筋トレ歴
+        area: 地域
+        gym: ジム
+        goal: 目的
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -208,4 +214,4 @@ ja:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
-    pm: 午後  
+    pm: 午後
