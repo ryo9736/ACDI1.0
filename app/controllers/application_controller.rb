@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
   
     def after_sign_in_path_for(resource)
       root_path
+    end
+
+     def after_sign_up_path_for(resource)
+      edit_user_registration_path
      end
   
     def after_sign_out_path_for(resource)
@@ -27,6 +31,9 @@ class ApplicationController < ActionController::Base
         end
         devise_parameter_sanitizer.permit(:sign_in) do |user_params|
           user_params.permit(:email, :password, :remember_me)
+        end
+        devise_parameter_sanitizer.permit(:account_update) do |user_params|
+          user_params.permit(:email, :password, :password_confirmation,:current_password,:name, :history, :area, :gym,:goal,:image,:image_cache)
         end
     end
   end
