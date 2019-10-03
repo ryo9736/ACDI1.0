@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_064757) do
     t.boolean "trainer", default: false
     t.boolean "trainee", default: false
     t.string "name"
-    t.integer "histroy"
+    t.integer "history"
     t.string "area"
     t.string "gym", default: "自宅"
     t.string "goal"
