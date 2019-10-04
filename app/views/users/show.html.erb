@@ -1,5 +1,13 @@
 <h1>アカウント情報</h1>
 <p>アイコン : <%= image_tag @user.image.url,class: "small-img" %></p>
+
+<% if @user.trainer == true %>
+   <h4>trainer</h4>
+<% else %>
+  <h4>trainee</h4>
+<% end %>
+
+
 <p>名前 : <%= @user.name %></p>
 <p>筋トレ歴 : <%= @user.history %>年</p>
 <p>地域 : <%= @user.area %></p>
