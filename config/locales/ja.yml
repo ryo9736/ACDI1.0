@@ -3,15 +3,10 @@ ja:
     attributes:
       user:
         password: パスワード
+        password_digest: パスワード
         password_confirmation: パスワード確認
         email: メールアドレス
         current_password: 現在のパスワード
-        name: 名前
-        history: 筋トレ歴
-        area: 地域
-        gym: ジム
-        goal: 目的
-        image: アイコン
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
+      favorite: お気に入り
+    attributes:
+      user:
+        name: 名前
+        image: アイコン
+        history: 筋トレ歴
+        area: 出没地域
+        gym: ジム
+        goal: 目的
+      post:
+        title: タイトル
+        start_reason: なぜ筋トレを始めたのか
+        purpose: どうなりたいか
+        current_status: 現状
+        target: 直近の目標
+        like_points: 好きな部位
