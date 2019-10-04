@@ -1,0 +1,29 @@
+<P>
+<strong>タイトル:</strong>
+<%= @post.title %>
+</P>
+<P>
+<strong>なぜ筋トレを始めたのか:</strong>
+<%= @post.start_reason %>
+</P>
+<P>
+<strong>どうなりたいか:</strong>
+<%= @post.purpose %>
+</P>
+<P>
+<strong>現状:</strong>
+<%= @post.current_status %>
+</P>
+<P>
+<strong>直近の目標:</strong>
+<%= @post.target %>
+</P>
+<strong>好きな部位:</strong>
+<%= @post.like_points %>
+</P>
+
+<%= link_to '編集',edit_post_path(@post.id)%>
+<br>
+<%= link_to "削除", post_path(@post.id),method: :delete %>
+<br>
+<%= link_to "戻る", posts_path %>
