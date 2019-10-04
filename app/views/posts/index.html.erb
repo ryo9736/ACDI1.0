@@ -1,17 +1,53 @@
-<% @posts.each do |post| %>
-    <p>
-      <strong>name:</strong>
-      <%= post.user.name %>
-    </p>
-    <p>
-      <storng>アイコン:</strong>
-      <%= image_tag post.user.image.url,class: "small-img" %></p>
-    </P>
-    <p>
-      <strong>title:</strong>
-      <%= post.title %>
-    </p>
-    <P>
-    <%= link_to 'show',post_path(post.id)%>
-    </P>
-  <% end %>
+<div class="flex-container">
+  <div class = "row">
+    <div class="main_left col-md-6">
+      <% @posts.each do |post| %>
+        <% if post.user.trainer == true %>
+          <p>
+            <strong>name:</strong>
+            <%= post.user.name %>
+          </p>
+          <p>
+            <strong>trainer</strong>
+          </p>
+          <p>
+            <storng>アイコン:</strong>
+            <%= image_tag post.user.image.url,class: "small-img" %></p>
+          </P>
+          <p>
+            <strong>title:</strong>
+            <%= post.title %>
+          </p>
+          <P>
+            <%= link_to '投稿詳細',post_path(post.id)%>
+          </P>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="main_right  col-md-6">
+      <% @posts.each do |post| %>
+        <% if post.user.trainee == true %>
+          <p>
+            <strong>name:</strong>
+            <%= post.user.name %>
+          </p>
+          <p>
+          <strong>trainee</strong>
+          </p>
+          <p>
+            <storng>アイコン:</strong>
+            <%= image_tag post.user.image.url,class: "small-img" %></p>
+          </P>
+          <p>
+            <strong>title:</strong>
+            <%= post.title %>
+          </p>
+          <P>
+            <%= link_to '投稿詳細',post_path(post.id)%>
+          </P>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
