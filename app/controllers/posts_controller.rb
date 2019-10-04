@@ -20,10 +20,10 @@ class PostsController < ApplicationController
     def index
       @posts = Post.page(params[:page])
     end
-  
+
     def show
       @user = @post.user
-      # @favorite = current_user.favorites.find_by(post_id:@post.id)
+      @favorite = current_user.favorites.find_by(post_id:@post.id)
     end
   
     def edit
