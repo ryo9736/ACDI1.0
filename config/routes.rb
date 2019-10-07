@@ -5,9 +5,11 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-  resources :posts
   resources :users, only: [:index, :show]
+  resources :posts
   resources :favorites, only: [:create, :destroy]
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
