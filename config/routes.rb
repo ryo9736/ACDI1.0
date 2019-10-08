@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-  resources :users, only: [:index, :show]
+  resources :users do
+    resources :reviews
+  end
   resources :posts
   resources :favorites, only: [:create, :destroy]
   resources :messages, :only => [:create]
