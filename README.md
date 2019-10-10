@@ -70,7 +70,7 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
-gem 'omniauth'
+gem 'acts-as-taggable-on'
 
 gem 'kaminari'
 
@@ -81,3 +81,5 @@ gem 'carrierwave'
 gem 'minimagick'
 
 gem 'toastr_rails'
+
+
