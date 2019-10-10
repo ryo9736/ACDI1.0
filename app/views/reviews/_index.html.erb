@@ -1,0 +1,17 @@
+  <% reviews.each do |review| %>
+    <% if review.reviewer_id.present?  %>
+      <% @reviwer = User.find_by(id: review.reviewer_id) %>
+      <%= @reviwer.name %>さん
+      <p>コメント:<%= review.content %></p>
+      <% if @reviwer == current_user %>
+        <div class = "edit_review">
+          <p><%= link_to '編集する', edit_user_review_path(review.user_id, review.id), method: :get,remote: true %></p>
+        </div>
+        <div class = "destory_review">
+          <p><%= link_to '削除する', user_review_path(review.user_id, review.id), method: :delete, remote: true %></p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<div id="edit_area"></div>

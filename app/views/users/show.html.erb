@@ -1,30 +1,49 @@
-<h1>アカウント情報</h1>
-<p>アイコン : <%= image_tag @user.image.url,class: "small-img" %></p>
+<div class="flex-container">
+  <div class = "row">
+    <div class="main_left col-md-4">
+    <h2>ユーザー情報</h2>
+      <p>アイコン : <%= image_tag @user.image.url,class: "small-img" %></p>
 
-<% if @user.trainer == true %>
-   <h4>trainer</h4>
-<% else %>
-  <h4>trainee</h4>
-<% end %>
-
-
-<p>名前 : <%= @user.name %></p>
-<p>筋トレ歴 : <%= @user.history %>年</p>
-<p>地域 : <%= @user.area %></p>
-<p>通ってるジム : <%= @user.gym %></p>
-<p>目標 : <%= @user.goal %></p>
-
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% if @user.trainer == true %>
+        <h4>trainer</h4>
+      <% else %>
+        <h4>trainee</h4>
       <% end %>
-      <%= f.submit "チャットを始める" %>
-    <% end %>
-  <% end %>
-<% end %>
+
+      <p>名前 : <%= @user.name %></p>
+      <p>筋トレ歴 : <%= @user.history %>年</p>
+      <p>地域 : <%= @user.area %></p>
+      <p>通ってるジム : <%= @user.gym %></p>
+      <p>目標 : <%= @user.goal %></p>
+
+      <% if @user.id == current_user.id %>
+        <% else %>
+          <% if @isRoom == true %>
+            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+          <% else %>
+            <%= form_for @room do |f| %>
+              <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, :value=> @user.id %>
+            <% end %>
+              <%= f.submit "チャットを始める" %>
+          <% end %>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="main_center col-md-2">
+    </div>
+
+    <div class="main_right col-md-6">
+    <h2>レビュー一覧</h2>
+      <% if @user.id == current_user.id %>
+        <% else %>
+          <div id="review_area">
+            <%= render partial: 'reviews/index', locals: { reviews: @reviews, user: @user } %>
+          </div>
+
+          <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %> 
+        <% end %>
+    </div>
+  </div>
+</div>
