@@ -18,8 +18,10 @@
             <strong>title:</strong>
             <%= post.title %>
           </p>
+          <P>
             <strong>タグ:</strong>
             <%= post.tag_list %>
+          </p>
           <P>
             <%= link_to '投稿詳細',post_path(post.id)%>
           </P>
@@ -44,6 +46,10 @@
           <p>
             <strong>title:</strong>
             <%= post.title %>
+          </p>
+          <P>
+            <strong>タグ:</strong>
+            <%= post.tag_list %>
           </p>
           <P>
             <%= link_to '投稿詳細',post_path(post.id)%>
