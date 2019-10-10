@@ -35,17 +35,19 @@ Rails 5.2.3
 
 ログイン、ログアウト、ユーザー管理機能
 
-ユーザー新規投稿
+ユーザー新規投稿機能
+
+ユーザー投稿編集削除機能
 
 ユーザー投稿にページネーション機能
 
-ユーザーお気に入り機能
-
-メッセージ機能
+ユーザー投稿お気に入り機能
 
 ユーザー投稿タグ機能
 
 ユーザー投稿検索機能
+
+チャット機能
 
 フィードバック機能
 
@@ -64,6 +66,7 @@ https://cacoo.com/diagrams/y7WnRMbGUpkzciTj/46A77
 https://xd.adobe.com/view/5acb7fdb-65d6-4e3a-5d13-fa2b12b44411-2cfa/
 
 <h2>使用予定Gem</h2>
+
 gem 'devise'
 
 gem 'rails_admin'
