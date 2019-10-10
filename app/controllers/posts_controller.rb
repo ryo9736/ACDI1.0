@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     private
   
     def post_params
-      params.require(:post).permit(:title,:start_reason,:purpose,:current_status,:target,:like_points)
+      params.require(:post).permit(:title,:start_reason,:purpose,:current_status,:target,:like_points,:tag_list)
     end
   
     def set_posts
@@ -62,4 +62,4 @@ class PostsController < ApplicationController
         redirect_to posts_path
       end
     end
-  end 
+  end

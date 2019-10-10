@@ -26,6 +26,10 @@
         <%= f.label :like_points %><br/>
         <%= f.text_field :like_points %>
        </div>
+       <div class="field">
+        <%= f.label :tag_list %><br/>
+        <%= f.text_field :tag_list,value: @post.tag_list.join(',') %>
+       </div>
       <%= f.submit %>
     <% end %>
     </div>
