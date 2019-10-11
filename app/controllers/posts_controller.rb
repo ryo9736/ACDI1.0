@@ -2,6 +2,12 @@ class PostsController < ApplicationController
     before_action :set_posts, only:[:show, :edit, :update, :destory]
     before_action :ensure_correct_user, only:[:edit, :update, :destroy]
 
+    def search
+      #@tags = ActsAsTaggableOn::Tag.all
+      @q = Post.ransack(params[:q])
+      @tags = @q.result(distinct: true)
+    end
+
     def new
       @post = Post.new
     end
@@ -19,6 +25,9 @@ class PostsController < ApplicationController
 
     def index
       @posts = Post.page(params[:page])
+      if params[:tag_name]
+        @posts = @posts.tagged_with("#{params[:tag_name]}")
+      end
     end
 
     def show
