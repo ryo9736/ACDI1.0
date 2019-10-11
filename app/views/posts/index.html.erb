@@ -4,7 +4,7 @@
       <% @posts.each do |post| %>
         <% if post.user.trainer == true %>
           <p>
-            <strong>name:</strong>
+            <strong>名前:</strong>
             <%= post.user.name %>
           </p>
           <p>
@@ -15,7 +15,7 @@
             <%= image_tag post.user.image.url,class: "small-img" %></p>
           </P>
           <p>
-            <strong>title:</strong>
+            <strong>タイトル:</strong>
             <%= post.title %>
           </p>
           <P>
@@ -33,7 +33,7 @@
       <% @posts.each do |post| %>
         <% if post.user.trainee == true %>
           <p>
-            <strong>name:</strong>
+            <strong>名前:</strong>
             <%= post.user.name %>
           </p>
           <p>
@@ -44,7 +44,7 @@
             <%= image_tag post.user.image.url,class: "small-img" %></p>
           </P>
           <p>
-            <strong>title:</strong>
+            <strong>タイトル:</strong>
             <%= post.title %>
           </p>
           <P>
@@ -59,3 +59,5 @@
     </div>
   </div>
 </div>
+
+<%= paginate @posts -%>

@@ -3,4 +3,5 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   acts_as_taggable
+  paginates_per 5
 end
