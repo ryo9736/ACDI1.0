@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require jquery/dist/jquery.js
 //= require toastr
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .
