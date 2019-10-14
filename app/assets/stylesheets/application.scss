@@ -16,3 +16,44 @@
  *= require_tree .
  *= require_self
  */
+
+ /*
+ * Globals
+ */
+
+
+  /* Links */
+  a,
+  a:focus,
+  a:hover {
+    color: #1A0CAB;
+  }
+
+  .navbar {
+    position: relative;//  親要素に対して相対位置に配置する。
+    display: flex;flex-wrap: wrap; // 複数行にまたがるコンテンツを折り返して表示する。
+    align-items: left; // コンテンツを縦方向に中央ぞろえする。
+    justify-content: space-between; // flexboxで左揃えのコンテンツと右揃えのコンテンツを離して配置する。
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    valuepadding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+   a.navbar-brand {
+    display: inline-block;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    font-size: 5em;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+    
+
+  @import "bootstrap";
