@@ -31,10 +31,15 @@
       <% end %>
     </div>
 
-    <div class="main_center col-md-2">
+    <div class="main_center col-md-3">
+      <h2>お気に入り一覧</h2>
+      <% @user.favorites.each do |favorite| %>
+        <br>
+        <%= favorite.post.title  %>
+      <% end %>
     </div>
 
-    <div class="main_right col-md-6">
+    <div class="main_right col-md-5">
     <h2>レビュー一覧</h2>
       <% if @user.id == current_user.id %>
         <% else %>
