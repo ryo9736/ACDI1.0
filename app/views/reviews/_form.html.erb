@@ -11,12 +11,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-    <%= form.hidden_field "reviewer_id", value: current_user.id %>
-  </div 
+  <h4><%= form.label :レビュー %></h4>
+      <%= form.text_area :content %>
+      <%= form.hidden_field "reviewer_id", value: current_user.id %>
+  </div>
 
   <div class="actions">
-    <%= form.submit remote: true %>
+  <h4><%= form.submit remote: true %></h4>
   </div>
 <% end %>

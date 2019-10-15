@@ -1,54 +1,89 @@
 <div class="flex-container">
   <div class = "row">
-    <div class="main_left col-md-4">
-    <h2>ユーザー情報</h2>
-      <p>アイコン : <%= image_tag @user.image.url,class: "small-img" %></p>
+    <div class="main_left col-md-3">
+      <h1>ユーザー情報</h1>
+        <div class="card" style="max-width":5rem>
+          <div class="card-body">
+          <h4>アイコン : <%= image_tag @user.image.url,class: "small-img" %></h4>
 
-      <% if @user.trainer == true %>
-        <h4>trainer</h4>
-      <% else %>
-        <h4>trainee</h4>
-      <% end %>
-
-      <p>名前 : <%= @user.name %></p>
-      <p>筋トレ歴 : <%= @user.history %>年</p>
-      <p>地域 : <%= @user.area %></p>
-      <p>通ってるジム : <%= @user.gym %></p>
-      <p>目標 : <%= @user.goal %></p>
-
-      <% if @user.id == current_user.id %>
-        <% else %>
-          <% if @isRoom == true %>
-            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+          <% if @user.trainer == true %>
+            <h4>
+            <strong>trainer</strong>
+            </h4>
           <% else %>
-            <%= form_for @room do |f| %>
-              <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, :value=> @user.id %>
-            <% end %>
-              <%= f.submit "チャットを始める" %>
+            <h4>
+            <storng>trainee</strong>
+            </h4>
           <% end %>
-      <% end %>
-      <% end %>
+
+            <h4>
+            <strong>名前:</strong>
+            <%= @user.name %>
+            </h4>
+
+            <h4>
+            <strong>筋トレ歴:</strong>
+            <%= @user.history %>年
+            </h4>
+
+            <h4>
+            <strong>地域:</strong>
+            <%= @user.area %>
+            </h4>
+
+            <h4>
+            <strong>通ってるジム:</strong>
+            <%= @user.gym %>
+            </h4>
+
+            <h4>
+            <strong>目標:</strong>
+            <%= @user.goal %>
+            </h4>
+
+           <% if @user.id == current_user.id %>
+           <% else %>
+             <% if @isRoom == true %>
+               <h4><a href="/rooms/<%= @roomId %>">チャットへ</a>
+             <% else %>
+               <%= form_for @room do |f| %>
+                 <%= fields_for @entry do |e| %>
+                   <%= e.hidden_field :user_id, :value=> @user.id %>
+                 <% end %>
+                   <h4><%= f.submit "チャットを始める" %>
+               <% end %>
+             <% end %>
+           <% end %>
+        </div>
+      </div>
     </div>
 
-    <div class="main_center col-md-3">
-      <h2>お気に入り一覧</h2>
-      <% @user.favorites.each do |favorite| %>
-        <br>
-        <%= favorite.post.title  %>
-      <% end %>
-    </div>
-
-    <div class="main_right col-md-5">
-    <h2>レビュー一覧</h2>
-      <% if @user.id == current_user.id %>
-        <% else %>
-          <div id="review_area">
-            <%= render partial: 'reviews/index', locals: { reviews: @reviews, user: @user } %>
+    <div class="main_center col-md-2">
+      <h1>お気に入り一覧</h1>
+        <div class="card" style="max-width":5rem>
+          <div class="card-body">
+            <% @user.favorites.each do |favorite| %>
+              <br>
+            <h3><%= favorite.post.title %></h3>
+            <% end %>
           </div>
-
-          <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %> 
-        <% end %>
+        </div>
     </div>
-  </div>
-</div>
+
+    <div class="main_right col-md-7">
+      <h1>評価一覧</h1>
+        <div class="card" style="max-width":5rem>
+          <div class="card-body">
+            <% if @user.id == current_user.id %>
+            <% else %>
+              <div id="review_area">
+                <%= render partial: 'reviews/index', locals: { reviews: @reviews, user: @user } %>
+              </div>
+                <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %>
+            <% end %>
+            <div id="edit_area">
+              <%= render partial: 'reviews/edit_form', locals: { review: @review, user: @user } %>
+            </div>
+          </div>
+        </div>
+    </div>

@@ -1,3 +1,12 @@
-#  $('#review_<%= @review.id %>').html("<%= escape_javascript(render 'users/edit_form', user: @user, review: @review) %>");
+<% if false %>
+<%#  $('#review_<%= @review.id %>').html("<%= escape_javascript(render 'users/edit_form', user: @user, review: @review) %>");
+<% end %>
+
+
 $('#edit_area').html("<%= escape_javascript(render 'reviews/edit_form', {user: @user, review: @review}) %>");
 $("textarea").val('')
+
+<% if false %>
+<%# $('#review_area').html("<%= escape_javascript(render 'reviews/form', {review: @review, user: @user}) %>");
+ $("textarea").val('')
+ <% end %>

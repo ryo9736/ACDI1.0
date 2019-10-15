@@ -1,8 +1,9 @@
-<p>コメント「<%= @review.content %>」を編集します</p>
-<%= form_with(model: [meeting_log, @review]) do |form| %>
+<% unless review.id.blank? %>
+<h4>レビュー:<%= @review.content %></h4>
+<%= form_with(model: review, url: user_review_path(user, review)) do |form| %>
  <% if @review.errors.any? %>
-   <div id=“error_explanation”>
-     <h2><%= pluralize(@review.errors.count, “error”) %> prohibited this review from being saved:</h2>
+   <div id="error_explanation">
+     <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
      <ul>
      <% @review.errors.full_messages.each do |message| %>
        <li><%= message %></li>
@@ -10,10 +11,11 @@
      </ul>
    </div>
  <% end %>
- <div class=“field”>
+ <div class="field">
    <%= form.text_area :content %>
  </div>
- <div class=“actions”>
-   <%= form.submit “編集” %>
+ <div class="actions">
+   <h4><%= form.submit "編集する" %>
  </div>
+<% end %>
 <% end %>

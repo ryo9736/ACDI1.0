@@ -3,25 +3,25 @@ class ReviewsController < ApplicationController
 
   def index
      @reviews = review.all
-     @reviwer = User.find_by(params[:reviewer_id])
+     @reviwer = current_user
   end
 
-  def create 
+  def create
     @user = User.find(params[:user_id])
     @review = @user.reviews.build(review_params)
-    @reviwer = User.find_by(params[:reviewer_id])
+    @reviwer = current_user
     @review.save
     respond_to do |format|
-      format.html { redirect_to user_path(@reviwer ) }
+      format.html { redirect_to user_path(@user) }
     end
   end
 
   def edit
     @review = Review.find(params[:id])
     @user = User.find(params[:user_id])
-    @reviwer = User.find_by(params[:reviewer_id])
+    @reviwer = current_user
     respond_to do |format|
-      format.html { redirect_to user_path(@reviwer ) }
+      format.html { redirect_to user_path(@user) }
       format.js { render :action => "edit" }
     end
   end
