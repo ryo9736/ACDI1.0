@@ -1,52 +1,74 @@
-<p>
-<storng>アイコン:</strong>
-<%= image_tag @user.image.url,class: "small-img" %></p>
-</P>
-<p>
-<strong>name:</strong>
-<%= @post.user.name %>
-</p>
-<P>
-<strong>タイトル:</strong>
-<%= @post.title %>
-</P>
-<P>
-<strong>なぜ筋トレを始めたのか:</strong>
-<%= @post.start_reason %>
-</P>
-<P>
-<strong>どうなりたいか:</strong>
-<%= @post.purpose %>
-</P>
-<P>
-<strong>現状:</strong>
-<%= @post.current_status %>
-</P>
-<P>
-<strong>直近の目標:</strong>
-<%= @post.target %>
-</P>
-<strong>好きな部位:</strong>
-<%= @post.like_points %>
-</P>
+<div class="flex-container">
+  <div class = "row">
+    <div class="main_left col-md-12">
+      <h1>
+      <i class="fas fa-envelope-open-text"></i>
+      <strong>投稿情報</strong>
+      <i class="fas fa-envelope-open-text"></i>
+      </h1>
+        <div class="card" style="max-width":5rem>
+          <div class="card-body">
+            <h4>
+            <strong>アイコン:</strong>
+            <%= image_tag @user.image.url,class: "small-img" %>
+            </h4>
 
-<%= link_to 'アカウント情報',user_path(@user.id)%>
-<br>
+            <h4>
+            <%= link_to 'アカウント情報',user_path(@user.id), class:'btn btn-dark rounded-pill btn-lg my-1 px-5'%>
+            </h4>
 
-<% unless @post.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
+            <h4>
+            <strong>名前:<strong>
+            <%= @post.user.name %>
+            </h4>
 
-<% if @post.user_id == current_user.id %>
-<br>
-<%= link_to '編集',edit_post_path(@post.id)%>
-<br>
-<%= link_to "削除", post_path(@post.id),method: :delete %>
-<br>
-<% end %>
-<br>
-<%= link_to "戻る", posts_path %>
+            <h4>
+            <strong>タイトル:<strong>
+            <%= @post.title %>
+            </h4>
+
+            <h4>
+            <strong>なぜ筋トレを始めたのか:</strong>
+            <%= @post.start_reason %>
+            </h4>
+
+            <h4>
+            <strong>どうなりたいか:</strong>
+            <%= @post.purpose %>
+            </h4>
+
+            <h4>
+            <strong>現状:</strong>
+            <%= @post.current_status %>
+            </h4>
+
+            <h4>
+            <strong>直近の目標:</strong>
+            <%= @post.target %>
+            </h4>
+
+            <h4>
+            <strong>好きな部位:</strong>
+            <%= @post.like_points %>
+            </h4>
+
+            <% unless @post.user_id == current_user.id %>
+              <% if @favorite.present? %>
+              <h4><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger rounded-pill btn-lg my-1 mb-5 px-5' %>
+              </h4>
+              <% else %>
+              <h4><%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-success rounded-pill btn-lg my-1 mb-5 px-5' %>
+              </h4>
+              <% end %>
+            <% end %>
+
+            <% if @post.user_id == current_user.id %>
+            <h4><%= link_to '編集',edit_post_path(@post.id), class:'btn btn-warning rounded-pill btn-lg my-1 px-5' %></h4>
+            <h4><%= link_to "削除", post_path(@post.id),method: :delete, class:'btn btn-danger rounded-pill btn-lg my-1 px-5' %></h4>
+            <% end %>
+            <h4><%= link_to "投稿一覧", posts_path, class:'btn btn-dark rounded-pill btn-lg my-1 px-5' %></h4>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

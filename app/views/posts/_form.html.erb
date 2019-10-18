@@ -1,38 +1,50 @@
 <div class="flex-container">
   <div class="row">
-    <div class = "form">
-    <%= form_with(model:@post,local:true) do |f| %>
-      <div class="field">
-        <%= f.label :title %><br/>
-        <%= f.text_field :title %>
-       </div>
-       <div class="field">
-        <%= f.label :start_reason %><br/>
-        <%= f.text_field :start_reason %>
-       </div>
-       <div class="field">
-        <%= f.label :purpose %><br/>
-        <%= f.text_field :purpose %>
-       </div>
-       <div class="field">
-        <%= f.label :current_status %><br/>
-        <%= f.text_field :current_status %>
-       </div>
-       <div class="field">
-        <%= f.label :target %><br/>
-        <%= f.text_field :target %>
-       </div>
-       <div class="field">
-        <%= f.label :like_points %><br/>
-        <%= f.text_field :like_points %>
-       </div>
-       <div class="field">
-        <%= f.label :tag_list %><br/>
-        <%= f.text_field :tag_list,value: @post.tag_list.join(','),class: "form-control" %>
-       </div>
-      <%= f.submit %>
-    <% end %>
+    <div class="main col-md-12">
+      <div class="card" style="max-width":5rem>
+        <div class="card-body">
+
+          <%= form_with(model:@post,local:true) do |f| %>
+
+            <div class="field">
+              <h2><%= f.label :title %></h2>
+              <%= f.text_field :title, class: "form-control", placeholder:"(例)" %>
+            </div>
+
+            <div class="field">
+              <h2><%= f.label :start_reason %></h2>
+              <%= f.text_field :start_reason, class: "form-control", placeholder:"(例)" %>
+            </div>
+
+            <div class="field">
+              <h2><%= f.label :purpose %></h2>
+              <%= f.text_field :purpose, class: "form-control", placeholder:"(例)" %>
+            </div>
+
+            <div class="field">
+              <h2><%= f.label :current_status %></h2>
+              <%= f.text_field :current_status, class: "form-control", placeholder:"(例)" %>
+            </div>
+
+            <div class="field">
+              <h2><%= f.label :target %></h2>
+              <%= f.text_field :target, class: "form-control", placeholder:"(例)" %>
+            </div>
+
+            <div class="field">
+              <h2><%= f.label :like_points %></h2>
+              <%= f.text_field :like_points, class: "form-control", placeholder:"(例)" %>
+            </div>
+
+            <div class="field">
+              <h2><%= f.label :tag_list %></h2>
+              <%= f.text_field :tag_list,value: @post.tag_list.join(','),class: "form-control" %>
+            </div>
+
+              <h2><%= f.submit class:'btn btn-success rounded-pill btn-lg my-1 mb-5 px-5' %></h2>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-

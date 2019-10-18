@@ -1,24 +1,37 @@
-<h2>ログイン</h2>
+<div class="flex-container">
+  <div class = "row">
+    <div class="main col-md-12">
+    <h1>
+      <i class="fas fa-sign-in-alt"></i>
+      <strong>ログイン</strong>
+      <i class="fas fa-sign-in-alt"></i>
+      </h1>
+      <div class="card text-center" style="max-width":5rem>
+        <div class="card-body">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="field">
+              <h4><%= f.label :email %><h4/>
+                  <%= f.email_field :email, class: "form-control", autofocus: true, placeholder:"example@.com", autocomplete: "email" %>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <div class="field">
+              <h4><%= f.label :password %><h4/>
+                  <%= f.password_field :password, class: "form-control", placeholder:"パスワードは６文字以上です。", autocomplete: "current-password" %>
+              </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                <h4><%= f.check_box :remember_me %>
+                    <%= f.label :ログインを記憶する %>
+                </div>
+              <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :次回から自動ログインする %>
+              <div class="actions">
+              <h4><%= f.submit "ログインする", class:'btn btn-success rounded-pill btn-lg my-1 mb-5 px-5' %>
+              </div>
+            <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログインする" %>
   </div>
-<% end %>
+</div>

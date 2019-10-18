@@ -1,77 +1,120 @@
 <div class="flex-container">
   <div class = "row">
-    <div class="main_left col-md-3">
-      <h1>ユーザー情報</h1>
-        <div class="card" style="max-width":5rem>
-          <div class="card-body">
-          <h4>アイコン : <%= image_tag @user.image.url,class: "small-img" %></h4>
+    <div class="main_left col-md-4">
+      <h1>
+        <i class="fas fa-user"></i>
+        <strong>ユーザー情報</strong>
+        <i class="fas fa-user"></i>
+      </h1>
+      <div class="card" style="max-width":5rem>
+        <div class="card-body">
+            <h4><%= image_tag @user.image.url,class: "small-img" %></h4>
+            <% if @user.trainer == true %>
+              <h4>
+                <strong>トレーナー</strong>
+                <i class="fas fa-user-graduate"></i>
+              </h4>
+            <% else %>
+              <h4>
+                 <strong>トレーニー</strong>
+                 <i class="fas fa-user-tie"></i>
+              </h4>
+            <% end %>
+              <h4>
+                <strong>名前:</strong>
+                <%= @user.name %>
+              </h4>
 
-          <% if @user.trainer == true %>
-            <h4>
-            <strong>trainer</strong>
-            </h4>
-          <% else %>
-            <h4>
-            <storng>trainee</strong>
-            </h4>
-          <% end %>
+              <h4>
+                <strong>筋トレ歴:</strong>
+                <%= @user.history %>年
+              </h4>
 
-            <h4>
-            <strong>名前:</strong>
-            <%= @user.name %>
-            </h4>
+              <h4>
+                <strong>地域:</strong>
+                <%= @user.area %>
+              </h4>
 
-            <h4>
-            <strong>筋トレ歴:</strong>
-            <%= @user.history %>年
-            </h4>
+              <h4>
+                <strong>通ってるジム:</strong>
+                <%= @user.gym %>
+              </h4>
 
-            <h4>
-            <strong>地域:</strong>
-            <%= @user.area %>
-            </h4>
+              <h4>
+                <strong>目標:</strong>
+                <%= @user.goal %>
+              </h4>
 
-            <h4>
-            <strong>通ってるジム:</strong>
-            <%= @user.gym %>
-            </h4>
+              <br>
+                <% if @user.id == current_user.id %>
+                  <h4>
+                    <%= link_to 'ユーザー編集', edit_user_registration_path, class:'btn btn-warning rounded-pill btn-lg my-1 px-5' %>
+                  </h4>
+                <% end %>
 
-            <h4>
-            <strong>目標:</strong>
-            <%= @user.goal %>
-            </h4>
-
-           <% if @user.id == current_user.id %>
-           <% else %>
-             <% if @isRoom == true %>
-               <h4><a href="/rooms/<%= @roomId %>">チャットへ</a>
-             <% else %>
-               <%= form_for @room do |f| %>
-                 <%= fields_for @entry do |e| %>
-                   <%= e.hidden_field :user_id, :value=> @user.id %>
-                 <% end %>
-                   <h4><%= f.submit "チャットを始める" %>
-               <% end %>
-             <% end %>
-           <% end %>
+                <% if @user.id == current_user.id %>
+                <% else %>
+                  <% if @isRoom == true %>
+                    <button type="button" class="btn btn-success rounded-pill btn-lg my-1 px-5">
+                    <a href="/rooms/<%= @roomId %>">チャットへ</a>
+                    </button>
+                  <% else %>
+                    <%= form_for @room do |f| %>
+                      <%= fields_for @entry do |e| %>
+                        <%= e.hidden_field :user_id, :value=> @user.id %>
+                      <% end %>
+                      <h4><%= f.submit "チャットを始める", class:'btn btn-success rounded-pill btn-lg my-1 px-5'  %>
+                    <% end %>
+                  <% end %>
+                <% end %>
         </div>
       </div>
     </div>
 
-    <div class="main_center col-md-2">
-      <h1>お気に入り一覧</h1>
+    <div class="main_center col-md-4">
+      <h1>
+        <i class="far fa-file-alt"></i>
+        <strong>自分の投稿</strong>
+        <i class="far fa-file-alt"></i>
+      </h1>
         <div class="card" style="max-width":5rem>
           <div class="card-body">
-            <% @user.favorites.each do |favorite| %>
-              <br>
-            <h3><%= favorite.post.title %></h3>
+            <% @user.posts.each do |post| %>
+              <h3><%= post.title %><%= link_to '投稿詳細', post_path(post), class:'btn btn-dark rounded-pill btn-lg my-1 px-5' %></h3>
             <% end %>
           </div>
         </div>
     </div>
 
-    <div class="main_right col-md-7">
-      <h1>評価一覧</h1>
+    <div class="main_center col-md-4">
+      <h1>
+        <i class="far fa-heart"></i>
+        <strong>お気に入りした投稿</strong>
+        <i class="far fa-heart"></i>
+      </h1>
+        <div class="card" style="max-width":5rem>
+          <div class="card-body">
+            <% @user.favorites.each do |favorite| %>
+              <h3><%= favorite.post.title %></h3>
+            <% end %>
+          </div>
+        </div>
+    </div>
+
+    <div class="main_right col-md-12">
+      <% if @user.trainer == true %>
+        <h1>
+          <i class="far fa-comment-dots"></i>
+          <strong>レビュー</strong>
+          <i class="far fa-comment-dots"></i>
+        </h1>
+      <% else %>
+        <h1>
+          <i class="far fa-comment-dots"></i>
+          <strong>フィードバック</strong>
+          <i class="far fa-comment-dots"></i>
+        </h1>
+      <% end %>
         <div class="card" style="max-width":5rem>
           <div class="card-body">
             <% if @user.id == current_user.id %>
@@ -87,3 +130,5 @@
           </div>
         </div>
     </div>
+  </div>
+</div>
