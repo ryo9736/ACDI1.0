@@ -9,6 +9,7 @@
       <div class="card text-center" style="max-width":5rem>
         <div class="card-body">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
               <div class="field">
               <h4><%= f.label :email %><h4/>
                   <%= f.email_field :email, class: "form-control", autofocus: true, placeholder:"example@.com", autocomplete: "email" %>
