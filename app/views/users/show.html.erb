@@ -8,7 +8,7 @@
       </h1>
       <div class="card" style="max-width":5rem>
         <div class="card-body">
-            <h4><%= image_tag @user.image.url,class: "small-img" %></h4>
+            <h4><%= image_tag @user.image.url, class: "small-img" if @user.image && @user.image.url  %></h4>
             <% if @user.trainer == true %>
               <h4>
                 <strong>トレーナー</strong>
