@@ -80,7 +80,7 @@
         <div class="card" style="max-width":5rem>
           <div class="card-body">
             <% @user.posts.each do |post| %>
-              <h3><%= post.title %><%= link_to '投稿詳細', post_path(post), class:'btn btn-dark rounded-pill btn-lg my-1 px-5' %></h3>
+              <h3><%= post.title %>  <%= link_to '投稿詳細', post_path(post), class:'btn btn-dark rounded-pill btn-lg my-1 px-3' %></h3>
             <% end %>
           </div>
         </div>
@@ -95,7 +95,7 @@
         <div class="card" style="max-width":5rem>
           <div class="card-body">
             <% @user.favorites.each do |favorite| %>
-              <h3><%= favorite.post.title %><%= link_to '投稿詳細', post_path(favorite.post), class:'btn btn-dark rounded-pill btn-lg my-1 px-5' %></h3>
+              <h3><%= favorite.post.title %>  <%= link_to '投稿詳細', post_path(favorite.post), class:'btn btn-dark rounded-pill btn-lg my-1 px-3' %></h3>
             <% end %>
           </div>
         </div>
@@ -117,13 +117,10 @@
       <% end %>
         <div class="card" style="max-width":5rem>
           <div class="card-body">
-            <% if @user.id == current_user.id %>
-            <% else %>
               <div id="review_area">
                 <%= render partial: 'reviews/index', locals: { reviews: @reviews, user: @user } %>
               </div>
                 <%= render partial: 'reviews/form', locals: { review: @review, user: @user } %>
-            <% end %>
             <div id="edit_area">
               <%= render partial: 'reviews/edit_form', locals: { review: @review, user: @user } %>
             </div>
