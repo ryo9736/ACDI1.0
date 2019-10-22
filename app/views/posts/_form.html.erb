@@ -3,9 +3,16 @@
     <div class="main col-md-12">
       <div class="card" style="max-width":5rem>
         <div class="card-body">
-
+          <% if @post.errors.any? %>
+            <div id="error_explanation" class="alert alert-danger">
+              <ul>
+                <% @post.errors.full_messages.each do |message| %>
+                  <h5><%= message %></h5>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
           <%= form_with(model:@post,local:true) do |f| %>
-
             <div class="field">
               <h2><%= f.label :title %></h2>
               <%= f.text_field :title, class: "form-control", placeholder:"(例)" %>
