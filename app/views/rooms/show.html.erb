@@ -29,10 +29,8 @@
         <% end %>
 
         <%= form_for @message do |f| %>
-        <h3><%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 100 %></h3>
+        <h3><%= f.text_field :content, class: "form-control", :placeholder => "メッセージを入力して下さい" , :size => 100 %></h3>
         <%= f.hidden_field :room_id, :value => @room.id %>
         <br>
         <h3><%= f.submit "投稿する",class:'btn btn-success rounded-pill btn-lg my-1 px-5' %></h3>
         <% end %>
-
-        <h3><%= link_to "ユーザー一覧に戻る", users_path %></h3>
