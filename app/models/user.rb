@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   validates :email, presence: true,
-            length: { maximum: 30 },
-            uniqueness: true,
-            format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+                    length: { in: 1..30  },
+                    uniqueness: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :trainer, inclusion: {in: [true, false]}
+  validates :trainee, inclusion: {in: [true, false]}
   mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
