@@ -10,17 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- @import "bootstrap";
- *= require toastr_rails
  *= require bootstrap/dist/css/bootstrap.min
  *= require_tree .
  *= require_self
  */
 
- /*
- * Globals
- */
-
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "toastr_rails";
 
   /* Links */
   a,
@@ -29,31 +27,94 @@
     color: #1A0CAB;
   }
 
-  .navbar {
-    position: relative;//  親要素に対して相対位置に配置する。
-    display: flex;flex-wrap: wrap; // 複数行にまたがるコンテンツを折り返して表示する。
-    align-items: left; // コンテンツを縦方向に中央ぞろえする。
-    justify-content: space-between; // flexboxで左揃えのコンテンツと右揃えのコンテンツを離して配置する。
+  div.jumbotron{
+    width:100%;
+    background-image: url("top_page.jpg");
+    background-size: cover;
+    background-position: center 100%;
+    height: 80rem;
   }
+
+  div.top_container{
+    padding-top:20rem;
+    color:white;
+  }
+
+  img.img-fluid{
+    width:100%;
+    height:80rem;
+  }
+
+  .navbar {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem; }
+    .navbar > .container,
+    .navbar > .container-fluid {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
 
   .navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
-    valuepadding-left: 0;
+    padding-left: 0;
+    padding-bottom: 0;
     margin-bottom: 0;
-    list-style: none;
-  }
+    list-style: none; }
+    .navbar-nav .nav-link {
+      padding-right: 0;
+      padding-left: 0; }
+    .navbar-nav .dropdown-menu {
+      position: static;
+      float: none; }
 
-   a.navbar-brand {
+  .nav-link {
+    display: block;
+    margin-right: auto;
+    font-size: 2em;
+    padding: 0.5rem 1rem; }
+    .nav-link:hover, .nav-link:focus {
+      text-decoration: none; }
+    .nav-link.disabled {
+      color: #6c757d;
+    }
+
+  .navbar-brand {
     display: inline-block;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-    margin-right: 1em;
-    font-size: 5em;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 25rem;
+    font-size: 3rem;
     line-height: inherit;
-    white-space: nowrap;
-  }
-    
+    white-space: nowrap; }
+    .navbar-brand:hover, .navbar-brand:focus {
+      text-decoration: none; 
+    }
 
-  @import "bootstrap";
+    .i {
+      display: block;
+    }
