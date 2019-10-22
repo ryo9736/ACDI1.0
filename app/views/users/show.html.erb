@@ -95,7 +95,7 @@
         <div class="card" style="max-width":5rem>
           <div class="card-body">
             <% @user.favorites.each do |favorite| %>
-              <h3><%= favorite.post.title %></h3>
+              <h3><%= favorite.post.title %><%= link_to '投稿詳細', post_path(favorite.post), class:'btn btn-dark rounded-pill btn-lg my-1 px-5' %></h3>
             <% end %>
           </div>
         </div>
