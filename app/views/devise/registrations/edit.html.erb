@@ -12,22 +12,34 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="field">
-            <h4><%= f.label :image %><br>
-                <%= f.file_field :image %>
+              <h4><%= f.label :image %>  <button type="button" class="btn btn-danger" style="width:40px">必須</button>
+              <br>
+              <%= f.file_field :image %>
+              </h4>
             </div>
 
-            <div class="field">
-            <h4><%= f.label :name %><br>
-                <%= f.text_field :name %>
-            </div>
+            <br>
 
             <div class="field">
-            <h4><%= f.label :history %><br>
+              <h4><%= f.label :name %>  <button type="button" class="btn btn-danger" style="width:40px">必須</button>
+              <br>
+              <%= f.text_field :name %>
+              </h4>
+            </div>
+
+            <br>
+
+            <div class="field">
+            <h4><%= f.label :history %>  <button type="button" class="btn btn-danger" style="width:40px">必須</button>
+            <br>
                 <%= f.text_field :history %>年
             </div>
 
+            <br>
+
             <div class="field">
-            <h4><%= f.label :area %><br>
+            <h4><%= f.label :area %>   <button type="button" class="btn btn-danger" style="width:40px">必須</button>
+            <br>
                 <%= f.text_field :area %>
             </div>
 
