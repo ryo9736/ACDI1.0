@@ -10,32 +10,32 @@
               <h2><%= f.label :title %></h2>
               <%= f.text_field :title, class: "form-control", placeholder:"(例)" %>
             </div>
-
+            <br>
             <div class="field">
               <h2><%= f.label :start_reason %></h2>
               <%= f.text_field :start_reason, class: "form-control", placeholder:"(例)" %>
             </div>
-
+            <br>
             <div class="field">
               <h2><%= f.label :purpose %></h2>
               <%= f.text_field :purpose, class: "form-control", placeholder:"(例)" %>
             </div>
-
+            <br>
             <div class="field">
               <h2><%= f.label :current_status %></h2>
               <%= f.text_field :current_status, class: "form-control", placeholder:"(例)" %>
             </div>
-
+            <br>
             <div class="field">
               <h2><%= f.label :target %></h2>
               <%= f.text_field :target, class: "form-control", placeholder:"(例)" %>
             </div>
-
+            <br>
             <div class="field">
               <h2><%= f.label :like_points %></h2>
               <%= f.text_field :like_points, class: "form-control", placeholder:"(例)" %>
             </div>
-
+            <br>
             <div class="field">
               <h2><%= f.label :tag_list %></h2>
               <%= f.text_field :tag_list,value: @post.tag_list.join(','),class: "form-control" %>
