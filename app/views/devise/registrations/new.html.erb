@@ -12,22 +12,25 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="field">
-            <h4><%= f.label :email %>
             <br>
+            <h4><%= f.label :email %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button><h4/>
                 <%= f.email_field :email, class: "form-control", autofocus: true, placeholder:"example@.com",autocomplete: "email" %>
             </div>
 
             <div class="field">
-            <h4><%= f.label :password %><h4/>
+            <br>
+            <h4><%= f.label :password %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button><h4/>
                 <%= f.password_field :password, class: "form-control", placeholder:"パスワードは６文字以上です。", autocomplete: "new-password" %>
             </div>
 
             <div class="field">
-            <h4><%= f.label :password_confirmation %><h4/>
+            <br>
+            <h4><%= f.label :password_confirmation %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button><h4/>
                 <%= f.password_field :password_confirmation, class: "form-control",placeholder:"確認のためパスワードを入力して下さい。", autocomplete: "new-password" %>
             </div>
 
             <div class="field">
+            <br>
             <h4><%= f.check_box :trainer %>
                 <%= f.label :トレーナー, :as => :boolean, checked:true %>
             </div>
@@ -38,6 +41,7 @@
             </div>
 
             <div class="actions">
+            <br>
             <h4><%= f.submit "新規登録する", class:'btn btn-success rounded-pill btn-lg my-1 mb-5 px-5' %>
             </div>
           <% end %>

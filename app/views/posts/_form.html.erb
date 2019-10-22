@@ -14,7 +14,7 @@
           <% end %>
           <%= form_with(model:@post,local:true) do |f| %>
             <div class="field">
-              <h2><%= f.label :title %></h2>
+              <h2><%= f.label :title %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button></h2>
               <%= f.text_field :title, class: "form-control", placeholder:"(例)" %>
             </div>
             <br>
@@ -24,17 +24,17 @@
             </div>
             <br>
             <div class="field">
-              <h2><%= f.label :purpose %></h2>
+              <h2><%= f.label :purpose %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button></h2>
               <%= f.text_field :purpose, class: "form-control", placeholder:"(例)" %>
             </div>
             <br>
             <div class="field">
-              <h2><%= f.label :current_status %></h2>
+              <h2><%= f.label :current_status %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button></h2>
               <%= f.text_field :current_status, class: "form-control", placeholder:"(例)" %>
             </div>
             <br>
             <div class="field">
-              <h2><%= f.label :target %></h2>
+              <h2><%= f.label :target %>  <button type="button" class="btn btn-danger" style="width:50px">必須</button></h2>
               <%= f.text_field :target, class: "form-control", placeholder:"(例)" %>
             </div>
             <br>
