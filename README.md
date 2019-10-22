@@ -29,13 +29,13 @@ Rails 5.2.3
 
 <h2>機能一覧</h2>
 
-ログイン、ログアウト、ユーザー管理機能
+ログイン、ログアウト機能
+
+ユーザー管理機能
 
 ユーザー新規投稿機能
 
 ユーザー投稿編集削除機能
-
-ユーザー投稿にページネーション機能
 
 ユーザー投稿お気に入り機能
 
@@ -45,9 +45,19 @@ Rails 5.2.3
 
 1対１のユーザーチャット機能
 
-フィードバック機能
+レビュー、フィードバック機能
+
+ページネーション機能
+
+単体テスト機能
+
+統合テスト機能
+
+＜実装予定機能>
 
 ツイッター認証機能
+
+google map地図表示機能
 
 <h2>カタログ設計</h2>
 https://docs.google.com/spreadsheets/d/13ODqrEZYXfTDbkc769nXIdEzooDq255KTLrhjx8m3sw/edit#gid=0
@@ -80,3 +90,10 @@ gem 'carrierwave'
 gem 'minimagick'
 
 gem 'toastr_rails'
+
+gem 'bootstrap', '~> 4.3.1'
+
+gem 'font-awesome-sass', '~> 5.4.1'
+
+gem 'jquery-rails'
+
