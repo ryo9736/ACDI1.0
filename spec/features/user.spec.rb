@@ -15,7 +15,6 @@ RSpec.feature "ユーザー機能", type: :feature do
     fill_in 'user_password_confirmation', with: '123456'
     check   'user_trainer'
     click_on '新規登録する'
-    save_and_open_page
     expect(page).to have_text "ユーザー編集"
   end
 
