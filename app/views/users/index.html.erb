@@ -9,7 +9,7 @@
         <% @users.each do |u| %>
           <div class="card  text-center" style="max-width":5rem>
             <div class="card-body">
-              <h2><%= image_tag u.image.url,class: "small-img" %></h2>
+              <h2><%= image_tag u.image.url,class: "small-img" if u.image && u.image.url %></h2>
               <h2><a href="/users/<%= u.id %>"><%= u.name %>さん</a></h2>
               <% if u.trainer == true %>
                 <h2>

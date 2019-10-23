@@ -10,7 +10,7 @@
           <div class="card-body">
             <h4>
             <strong>アイコン:</strong>
-            <%= image_tag @user.image.url,class: "small-img" %>
+            <%= image_tag @user.image.url,class: "small-img" if @user.image && @user.image.url  %>
             </h4>
 
             <h4>
