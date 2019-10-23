@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     before_action :set_posts, only:[:show, :edit, :update, :destory]
     before_action :ensure_correct_user, only:[:edit, :update, :destroy]
+    before_action :authenticate_user!, :only => [:show]
 
     def search
       #@tags = ActsAsTaggableOn::Tag.all
