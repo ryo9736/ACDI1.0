@@ -19,7 +19,7 @@
                 <i class="fas fa-user-graduate"></i>
               </h2>
               <h2>
-                <%= image_tag post.user.image.url,class: "small-img" %></h2>
+                <%= image_tag post.user.image.url,class: "small-img" if post.user.image && post.user.image.url  %></h2>
               </h2>
               <h2>
                 <strong>タイトル:</strong>
@@ -61,7 +61,7 @@
                 <i class="fas fa-user-tie"></i>
               </h2>
               <h2>
-                <%= image_tag post.user.image.url,class: "small-img" %></h2>
+                <%= image_tag post.user.image.url,class: "small-img" if post.user.image && post.user.image.url %></h2>
               </h2>
               <h2>
                 <strong>タイトル:</strong>
