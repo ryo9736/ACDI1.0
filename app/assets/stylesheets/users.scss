@@ -9,3 +9,28 @@
     border: 5px solid #fff;
 }
 
+.user_index_background {
+    background-image: url("user_index.jpg");
+    background-size: cover;
+    background-position: center 100%;
+    width: 100%;
+    height: 100rem;
+}
+
+.card__container {
+    width: calc(100vw - 100px);
+    margin: 0 auto;
+}
+
+.users_index {
+    width: 200px;
+    margin: 4px;
+}
+
+.user_edit_background {
+    background-image: url("user_show.jpg");
+    background-size: cover;
+    background-position: center 100%;
+    width: 100%;
+    height: 100rem;
+}
