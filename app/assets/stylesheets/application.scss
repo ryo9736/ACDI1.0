@@ -46,6 +46,7 @@
   }
 
   .navbar {
+    background-color: aquamarine;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -83,7 +84,7 @@
     flex-direction: column;
     padding-left: 0;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     list-style: none; }
     .navbar-nav .nav-link {
       padding-right: 0;
@@ -112,9 +113,28 @@
     line-height: inherit;
     white-space: nowrap; }
     .navbar-brand:hover, .navbar-brand:focus {
-      text-decoration: none; 
+      text-decoration: none;
     }
 
     .i {
       display: block;
+    }
+    .new_registrations_images {
+      background-image: url("registration_new.jpg");
+      background-size: cover;
+      background-position: center 100%;
+      width: 70rem;
+      height: 55rem;
+    }
+
+    .new_sessions_images {
+      background-image: url("sessions_new.jpg");
+      background-size: cover;
+      background-position: center 100%;
+      width: 70rem;
+      height: 35rem;
+    }
+
+    footer{
+      height: 1rem ;
     }
