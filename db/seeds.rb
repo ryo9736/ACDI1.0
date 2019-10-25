@@ -14,12 +14,14 @@ User.create!(name: "admin_user",
                password: "111111",
                password_confirmation: "111111",
                admin: true,
+               trainer:true,
                )
 
 User.create!(name: "test_user",
                email: "2@2.com",
                password: "222222",
                password_confirmation: "222222",
+               trainer:true,
                )
 
                20.times do |n|
