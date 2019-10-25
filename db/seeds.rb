@@ -26,7 +26,7 @@ User.create!(name: "test_user",
 
                20.times do |n|
                 name = Faker::Games::Pokemon.name
-                email = Faker::Internet.email.characters(10)
+                email = Faker::Internet.email
                 password = "password"
                 User.create!(name: name,
                              email: email,
