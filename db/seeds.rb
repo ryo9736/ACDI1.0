@@ -13,10 +13,20 @@ User.create!(name: "admin_user",
                admin: true,
                )
 
-  User.create!(name: "test_user",
+User.create!(name: "test_user",
                email: "2@2.com",
                password: "222222",
                password_confirmation: "222222",
                )
 
+               20.times do |n|
+                name = Faker::Games::Pokemon.name
+                email = Faker::Internet.email(3,22)
+                password = "password"
+                User.create!(name: name,
+                             email: email,
+                             password: password,
+                             password_confirmation: password,
+                             )
+              
 
