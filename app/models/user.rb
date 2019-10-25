@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :email, presence: true,
-                    length: { in: 1..30  },
+                    length: { in: 1..50  },
                     uniqueness: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :trainer, inclusion: {in: [true, false]}
