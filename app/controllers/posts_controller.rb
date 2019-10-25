@@ -2,6 +2,7 @@ class PostsController < ApplicationController
     before_action :set_posts, only:[:show, :edit, :update, :destory]
     before_action :ensure_correct_user, only:[:edit, :update, :destroy]
     before_action :authenticate_user!, :only => [:show]
+    PER = 10
 
     def search
       #@tags = ActsAsTaggableOn::Tag.all
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
     end
 
     def index
-      @posts = Post.page(params[:page])
+      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(PER)
       if params[:tag_name]
         @posts = @posts.tagged_with("#{params[:tag_name]}")
       end

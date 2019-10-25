@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :only => [:show]
+  PER = 18
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(PER)
   end
   def show
     @user=User.find(params[:id])

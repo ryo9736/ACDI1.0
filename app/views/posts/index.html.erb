@@ -6,6 +6,7 @@
       <strong>トレーナー</strong>
       <i class="fas fa-user-graduate"></i>
       </h1>
+      <h2><%= paginate @posts %></h2>
       <% @posts.each do |post| %>
         <% if post.user.trainer == true %>
           <div class="card" style="max-width":5rem>
@@ -48,6 +49,7 @@
       <strong>トレー二ー</strong>
       <i class="fas fa-user-tie"></i>
       </h1>
+      <h2><%= paginate @posts %></h2>
       <% @posts.each do |post| %>
         <% if post.user.trainee == true %>
           <div class="card" style="max-width":5rem>
@@ -85,5 +87,3 @@
     </div>
   </div>
 </div>
-
-<%= paginate @posts -%>
