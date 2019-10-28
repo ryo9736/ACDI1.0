@@ -79,11 +79,13 @@ RSpec.feature "ユーザー機能", type: :feature do
     click_on 'ログインする'
     click_on 'ユーザー詳細'
     click_on 'ユーザー編集'
+    fill_in 'user_current_password', with: '123456'
     click_on '削除する'
     fill_in 'user_email', with: 'test@test.com'
     fill_in 'user_password', with: '123456'
     click_on 'ログインする'
     expect(page).to have_text "ログイン"
+    save_and_open_page
   end
 end
 
