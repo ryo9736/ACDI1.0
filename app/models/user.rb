@@ -5,6 +5,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :trainer, inclusion: {in: [true, false]}
   validates :trainee, inclusion: {in: [true, false]}
+  validates :history, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
