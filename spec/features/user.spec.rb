@@ -11,8 +11,8 @@ RSpec.feature "ユーザー機能", type: :feature do
     visit new_user_registration_path
 
     fill_in 'user_email', with: 'new@new.com'
-    fill_in 'user_password', with: '123456'
-    fill_in 'user_password_confirmation', with: '123456'
+    fill_in 'user_password', with: '101010'
+    fill_in 'user_password_confirmation', with: '101010'
     check   'user_trainer'
     click_on '新規登録する'
     expect(page).to have_text "ユーザー編集"
@@ -49,7 +49,7 @@ RSpec.feature "ユーザー機能", type: :feature do
     fill_in 'user_password', with: '123456'
     click_on 'ログインする'
     click_on 'ユーザー一覧'
-    expect(page).to have_text "ユーザー一覧"
+    expect(page).to have_text "トレーナー"
   end
 
   scenario "ユーザー編集機能のテスト" do
@@ -67,7 +67,7 @@ RSpec.feature "ユーザー機能", type: :feature do
     fill_in 'user_area', with: 'テスト町'
     fill_in 'user_current_password', with: '123456'
     click_on '更新する'
-    expect(page).to have_text "ユーザー情報"
+    expect(page).to have_text "テスト町"
   end
 
   scenario "ユーザー削除機能のテスト" do
@@ -80,6 +80,9 @@ RSpec.feature "ユーザー機能", type: :feature do
     click_on 'ユーザー詳細'
     click_on 'ユーザー編集'
     click_on '削除する'
+    fill_in 'user_email', with: 'test@test.com'
+    fill_in 'user_password', with: '123456'
+    click_on 'ログインする'
     expect(page).to have_text "ログイン"
   end
 end
