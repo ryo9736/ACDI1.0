@@ -1,12 +1,4 @@
 class User < ApplicationRecord
-  validates :email, presence: true,
-                    length: { in: 1..50  },
-                    uniqueness: true,
-                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validates :trainer, inclusion: {in: [true, false]}
-  validates :trainee, inclusion: {in: [true, false]}
-  validates :history, numericality: { only_integer: true, greater_than_or_equal_to: 0 },on: :update
-  mount_uploader :image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,4 +9,12 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  validates :email, presence: true,
+                    length: { in: 1..50  },
+                    uniqueness: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :trainer, inclusion: {in: [true, false]}
+  validates :trainee, inclusion: {in: [true, false]}
+  validates :history, numericality: { only_integer: true, greater_than_or_equal_to: 0 },on: :update
+  mount_uploader :image, ImageUploader
 end
