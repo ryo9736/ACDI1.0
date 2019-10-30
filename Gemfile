@@ -45,6 +45,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'spring-commands-rspec'
   gem 'launchy'
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -86,3 +91,5 @@ gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'maste
 gem 'rails-i18n'
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
