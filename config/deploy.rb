@@ -6,7 +6,7 @@ set :application, 'ACDI1.0'
 set :repo_url, 'https://github.com/ryo9736/ACDI1.0.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'aws'
+set :branch, ENV['BRANCH'] || 'master'
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/'
