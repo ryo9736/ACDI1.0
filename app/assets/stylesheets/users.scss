@@ -10,7 +10,7 @@
 }
 
 .user_index_background {
-    background-image: url("user_index.jpg");
+    background-image: image-url("user_index.jpg");
     background-size: cover;
     background-position: center 100%;
     width: 100%;
@@ -28,7 +28,7 @@
 }
 
 .user_edit_background {
-    background-image: url("user_show.jpg");
+    background-image: image-url("user_show.jpg");
     background-size: cover;
     background-position: center 100%;
     width: 100%;
