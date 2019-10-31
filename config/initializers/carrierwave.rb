@@ -19,9 +19,9 @@ CarrierWave.configure do |config|
     case Rails.env
       when 'production'
         config.fog_directory = 'acdi-production'
-        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/acdi-productionss'
+        config.asset_host = 'https://acdi-production.s3.amazonaws.com'
       when 'development'
         config.fog_directory = 'acdi-development'
-        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/acdi-development'
+        config.asset_host = 'https://acdi-development.s3.amazonaws.com'
     end
   end
