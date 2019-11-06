@@ -95,4 +95,6 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
+gem 'omniauth'
+gem 'omniauth-twitter'
 
