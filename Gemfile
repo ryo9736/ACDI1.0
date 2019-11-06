@@ -97,4 +97,4 @@ gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'omniauth'
 gem 'omniauth-twitter'
-
+gem 'omniauth-rails_csrf_protection'
