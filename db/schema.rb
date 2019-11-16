@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_065043) do
+ActiveRecord::Schema.define(version: 2019_10_10_013419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 2019_11_06_065043) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
@@ -66,9 +71,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_065043) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id"
     t.text "content"
+    t.integer "reviewer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "reviewer_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -109,8 +114,11 @@ ActiveRecord::Schema.define(version: 2019_11_06_065043) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.boolean "admin", default: false
     t.boolean "trainer", default: false
     t.boolean "trainee", default: false
@@ -122,11 +130,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_065043) do
     t.string "gym", default: "自宅"
     t.string "goal"
     t.text "image"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
