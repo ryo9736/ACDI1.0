@@ -31,6 +31,8 @@ Rails 5.2.3
 
 新規登録、ログイン、ログアウト機能
 
+ツイッターログイン機能
+
 ユーザー一覧、編集、削除機能
 
 ユーザー管理機能
@@ -55,11 +57,6 @@ Rails 5.2.3
 
 統合テスト機能
 
-＜実装予定機能>
-
-ツイッター認証機能
-
-google map地図表示機能
 
 <h2>カタログ設計</h2>
 https://docs.google.com/spreadsheets/d/13ODqrEZYXfTDbkc769nXIdEzooDq255KTLrhjx8m3sw/edit#gid=0
