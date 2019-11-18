@@ -96,3 +96,19 @@ gem 'font-awesome-sass', '~> 5.4.1'
 
 gem 'jquery-rails'
 
+gem 'rails-i18n'
+
+gem 'fog-aws'
+
+gem 'dotenv-rails'
+
+gem 'unicorn'
+
+gem 'mini_racer', platforms: :ruby
+
+gem 'omniauth'
+
+gem 'omniauth-twitter'
+
+gem 'omniauth-rails_csrf_protection'
+
